@@ -24,10 +24,6 @@ namespace ImagesGraphicprocessing
         }
         INIClassFunction ini = new INIClassFunction();
         SerialPort serial = new SerialPort();
-
-
-
-
         string SaveOrcstr = "";
         /// <summary>
         /// 
@@ -53,67 +49,66 @@ namespace ImagesGraphicprocessing
                 g.CopyFromScreen(new Point(0, 0), new Point(0, 0), new Size(iWidth, iHeight));
                 //保存为文件 
                 myImage.Save(imgpath);
+
+                //MessageBox.Show("截图成功！文件保存路径为:" + imgpath);
+                string saveimgPath = Path.GetFullPath("images") + "\\save" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
+                //CaptureImage(imgpath,100,100, saveimgPath,500,500);
+
+                //byte[] jieimg = FunctionClass.GetImageByte(imgpath);
+                //string jieimgstr = FunctionClass.ByteArrayToHexString(jieimg);
+                string Contrast_picturePath = Path.GetFullPath("images");
+                Contrast_picturePath += "\\1.png";
+
+                #region tessract_orc文字识别
+                string ocrTtxt = "";
+                //chi_sim是中文库
+                const string language = "chi_sim";
+                //Nuget安装的Tessract版本为3.20，tessdata的版本必须与其匹配，另外路径最后必须以"\"或者"/"结尾
+                string TessractData = AppDomain.CurrentDomain.BaseDirectory + @"tessdata\";
+                TesseractEngine test = new TesseractEngine(TessractData, language);
+                //创建一个图片对象
+                Bitmap tmpVal = new Bitmap(Contrast_picturePath);
+                //灰度化，可以提高识别率
+                var tmpImage = FunctionClass.ToGray(tmpVal);
+                Page tmpPage = test.Process(tmpImage);
+                ocrTtxt = tmpPage.GetText();
+                tmpVal.Dispose();
+                #endregion
+                string ISSuccessContain = "";
+                if (ocrTtxt.Contains("逗站完肱"))
+                {
+                    ISSuccessContain = "Success";
+                }
+                if (ocrTtxt.Contains("二 手动芳茁湿"))
+                {
+                    ISSuccessContain = "Fail";
+                }
+
+                if (ocrTtxt != SaveOrcstr)
+                {
+                    SaveOrcstr = ocrTtxt;
+                    if (ISSuccessContain == "Success")
+                    {
+                        SuccessOrther();
+                        MessageBox.Show("SendSuccessOrther!");
+                    }
+                    else if (ISSuccessContain == "Fail")
+                    {
+                        FaildOrther();
+                        MessageBox.Show("SendFaildOrther!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("文件相同！");
+                }
+
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.ToString());
             }
-            //MessageBox.Show("截图成功！文件保存路径为:" + imgpath);
-            string saveimgPath = Path.GetFullPath("images") + "\\save" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
-            //CaptureImage(imgpath,100,100, saveimgPath,500,500);
-
-            //byte[] jieimg = FunctionClass.GetImageByte(imgpath);
-            //string jieimgstr = FunctionClass.ByteArrayToHexString(jieimg);
-            string Contrast_picturePath = Path.GetFullPath("images");
-            Contrast_picturePath += "\\12.png";
-
-            #region tessract_orc文字识别
-            string ocrTtxt = "";
-            //chi_sim是中文库
-            const string language = "chi_sim";
-            //Nuget安装的Tessract版本为3.20，tessdata的版本必须与其匹配，另外路径最后必须以"\"或者"/"结尾
-            string TessractData = AppDomain.CurrentDomain.BaseDirectory + @"tessdata\";
-            TesseractEngine test = new TesseractEngine(TessractData, language);
-            //创建一个图片对象
-            Bitmap tmpVal = new Bitmap(Contrast_picturePath);
-            //灰度化，可以提高识别率
-            var tmpImage = FunctionClass.ToGray(tmpVal);
-            Page tmpPage = test.Process(tmpImage);
-            ocrTtxt = tmpPage.GetText();
-            tmpVal.Dispose();
-            #endregion
-            string ISSuccessContain = "";
-            if (ocrTtxt.Contains("逗站完肱"))
-            {
-                ISSuccessContain = "Success";
-            }
-            if (ocrTtxt.Contains("二 手动芳茁湿"))
-            {
-                ISSuccessContain = "Fail";
-            }
-
-            if (ocrTtxt != SaveOrcstr)
-            {
-                SaveOrcstr = ocrTtxt;
-                if (ISSuccessContain == "Success")
-                {
-                    SuccessOrther();
-                    MessageBox.Show("SendSuccessOrther!");
-                }
-                else if (ISSuccessContain == "Fail")
-                {
-                    FaildOrther();
-                    MessageBox.Show("SendFaildOrther!");
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("文件相同！");
-            }
-
-
 
 
             //string Contraststr = FunctionClass.ByteArrayToHexString(FunctionClass.GetImageByte(Contrast_picturePath));
@@ -333,31 +328,31 @@ namespace ImagesGraphicprocessing
                     if (serial.IsOpen)
                     {
 
-                   
-                    string imgpath = Path.GetFullPath("images");
-                    imgpath += "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
-                    //this.Invoke(new Action(() =>
-                    //{
-                    //Thread.Sleep(1000);
-                    //抓屏并拷贝到myimage里 
-                    g.CopyFromScreen(new Point(0, 0), new Point(0, 0), new Size(iWidth, iHeight));
-                    //保存为文件 
 
-                    //Bitmap map =(Bitmap) myImage;
-                    //map= FunctionClass.ToGray(map);
-                    //myImage = map;
-                    myImage.Save(imgpath);
-                    string Contrast_picturePath = Path.GetFullPath("images");
-                    Contrast_picturePath += "\\3.png";
+                        string imgpath = Path.GetFullPath("images");
+                        imgpath += "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
+                        //this.Invoke(new Action(() =>
+                        //{
+                        //Thread.Sleep(1000);
+                        //抓屏并拷贝到myimage里 
+                        g.CopyFromScreen(new Point(0, 0), new Point(0, 0), new Size(iWidth, iHeight));
+                        //保存为文件 
 
-                    #region tessract_orc文字识别
-                    string ocrTtxt = "";
-                    //chi_sim是中文库
-                    const string language = "chi_sim";
-                    //Nuget安装的Tessract版本为3.20，tessdata的版本必须与其匹配，另外路径最后必须以"\"或者"/"结尾
+                        //Bitmap map =(Bitmap) myImage;
+                        //map= FunctionClass.ToGray(map);
+                        //myImage = map;
+                        myImage.Save(imgpath);
+                        string Contrast_picturePath = Path.GetFullPath("images");
+                        Contrast_picturePath += "\\1.png";
 
-                    //this.Invoke(new Action(() =>
-                    //{
+                        #region tessract_orc文字识别
+                        string ocrTtxt = "";
+                        //chi_sim是中文库
+                        const string language = "chi_sim";
+                        //Nuget安装的Tessract版本为3.20，tessdata的版本必须与其匹配，另外路径最后必须以"\"或者"/"结尾
+
+                        //this.Invoke(new Action(() =>
+                        //{
                         string TessractData = AppDomain.CurrentDomain.BaseDirectory + @"tessdata\";
                         TesseractEngine test = new TesseractEngine(TessractData, language);
 
@@ -371,36 +366,36 @@ namespace ImagesGraphicprocessing
 
                         test.Dispose();
                         tmpVal.Dispose();
-                    //}));
-                    #endregion
-                    string ISSuccessContain = "";
-                    if (ocrTtxt.Contains("逗站完肱"))
-                    {
-                        ISSuccessContain = "Success";
-                    }
-                    if (ocrTtxt.Contains("二 手动芳茁湿"))
-                    {
-                        ISSuccessContain = "Fail";
-                    }
-                    //if (ocrTtxt != SaveOrcstr)
-                    //{
-                    SaveOrcstr = ocrTtxt;
-                    if (ISSuccessContain == "Success")
-                    {
-                        SuccessOrther();
-                        //MessageBox.Show("SendSuccessOrther!");
-                    }
-                    else if (ISSuccessContain == "Fail")
-                    {
-                        FaildOrther();
-                        //MessageBox.Show("SendFaildOrther!");
-                    }
-                    else if (ISSuccessContain == "")
-                    {
-                        string orther = "0";
-                        Byte[] buffer = FunctionClass.StringTobyte(orther);
-                        serial.Write(buffer, 0, buffer.Count());
-                    }
+                        //}));
+                        #endregion
+                        string ISSuccessContain = "";
+                        if (ocrTtxt.Contains("逗站完肱"))
+                        {
+                            ISSuccessContain = "Success";
+                        }
+                        if (ocrTtxt.Contains("二 手动芳茁湿"))
+                        {
+                            ISSuccessContain = "Fail";
+                        }
+                        //if (ocrTtxt != SaveOrcstr)
+                        //{
+                        SaveOrcstr = ocrTtxt;
+                        if (ISSuccessContain == "Success")
+                        {
+                            SuccessOrther();
+                            //MessageBox.Show("SendSuccessOrther!");
+                        }
+                        else if (ISSuccessContain == "Fail")
+                        {
+                            FaildOrther();
+                            //MessageBox.Show("SendFaildOrther!");
+                        }
+                        else if (ISSuccessContain == "")
+                        {
+                            string orther = "0";
+                            Byte[] buffer = FunctionClass.StringTobyte(orther);
+                            serial.Write(buffer, 0, buffer.Count());
+                        }
                         //}
                         //else
                         //{
