@@ -1,0 +1,14 @@
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\bin\Debug\ImagesGraphicprocessing.exe.config
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\bin\Debug\ImagesGraphicprocessing.exe
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\bin\Debug\ImagesGraphicprocessing.pdb
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.Form1.resources
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.Properties.Resources.resources
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.csproj.GenerateResource.Cache
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.exe
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.pdb
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.Form2.resources
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\bin\Debug\AipSdk.pdb
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.AspriseOCR.resources
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.GetOtherFromText.resources
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.ReaSonEXENameFindHandle.resources
+D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\Debug\ImagesGraphicprocessing.csprojResolveAssemblyReference.cache
