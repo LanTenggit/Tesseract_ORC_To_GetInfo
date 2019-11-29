@@ -43,60 +43,60 @@ namespace ImagesGraphicprocessing
         }
         
 
-        public void GeneralBasicDemo()
-        {
+    //    public void GeneralBasicDemo()
+    //    {
 
-            // 设置APPID/AK/SK
-            var APP_ID = "你的 App ID";
-            var API_KEY = "你的 Api Key";
-            var SECRET_KEY = "你的 Secret Key";
+    //        // 设置APPID/AK/SK
+    //        var APP_ID = "你的 App ID";
+    //        var API_KEY = "你的 Api Key";
+    //        var SECRET_KEY = "你的 Secret Key";
 
-            var client = new Baidu.Aip.Ocr.Ocr(API_KEY, SECRET_KEY);
-            client.Timeout = 60000;  // 修改超时时间
+    //        var client = new Baidu.Aip.Ocr.Ocr(API_KEY, SECRET_KEY);
+    //        client.Timeout = 60000;  // 修改超时时间
 
 
-            var image = File.ReadAllBytes("图片文件路径");
-            // 调用通用文字识别, 图片参数为本地图片，可能会抛出网络等异常，请使用try/catch捕获
-            var result = client.GeneralBasic(image);
-            Console.WriteLine(result);
-            // 如果有可选参数
-            var options = new Dictionary<string, object>{
-        {"language_type", "CHN_ENG"},
-        {"detect_direction", "true"},
-        {"detect_language", "true"},
-        {"probability", "true"}
-    };
-            // 带参数调用通用文字识别, 图片参数为本地图片
-            result = client.GeneralBasic(image, options);
-            Console.WriteLine(result);
-        }
-        public void GeneralBasicUrlDemo()
-        {
+    //        var image = File.ReadAllBytes("图片文件路径");
+    //        // 调用通用文字识别, 图片参数为本地图片，可能会抛出网络等异常，请使用try/catch捕获
+    //        var result = client.GeneralBasic(image);
+    //        Console.WriteLine(result);
+    //        // 如果有可选参数
+    //        var options = new Dictionary<string, object>{
+    //    {"language_type", "CHN_ENG"},
+    //    {"detect_direction", "true"},
+    //    {"detect_language", "true"},
+    //    {"probability", "true"}
+    //};
+    //        // 带参数调用通用文字识别, 图片参数为本地图片
+    //        result = client.GeneralBasic(image, options);
+    //        Console.WriteLine(result);
+    //    }
+    //    public void GeneralBasicUrlDemo()
+    //    {
 
-            // 设置APPID/AK/SK
-            var APP_ID = "你的 App ID";
-            var API_KEY = "你的 Api Key";
-            var SECRET_KEY = "你的 Secret Key";
+    //        // 设置APPID/AK/SK
+    //        var APP_ID = "你的 App ID";
+    //        var API_KEY = "你的 Api Key";
+    //        var SECRET_KEY = "你的 Secret Key";
 
-            var client = new Baidu.Aip.Ocr.Ocr(API_KEY, SECRET_KEY);
-            client.Timeout = 60000;  // 修改超时时间
+    //        var client = new Baidu.Aip.Ocr.Ocr(API_KEY, SECRET_KEY);
+    //        client.Timeout = 60000;  // 修改超时时间
 
-            var url = "http//www.x.com/sample.jpg";
+    //        var url = "http//www.x.com/sample.jpg";
 
-            // 调用通用文字识别, 图片参数为远程url图片，可能会抛出网络等异常，请使用try/catch捕获
-            var result = client.GeneralBasicUrl(url);
-            Console.WriteLine(result);
-            // 如果有可选参数
-            var options = new Dictionary<string, object>{
-        {"language_type", "CHN_ENG"},
-        {"detect_direction", "true"},
-        {"detect_language", "true"},
-        {"probability", "true"}
-    };
-            // 带参数调用通用文字识别, 图片参数为远程url图片
-            result = client.GeneralBasicUrl(url, options);
-            Console.WriteLine(result);
-        }
+    //        // 调用通用文字识别, 图片参数为远程url图片，可能会抛出网络等异常，请使用try/catch捕获
+    //        var result = client.GeneralBasicUrl(url);
+    //        Console.WriteLine(result);
+    //        // 如果有可选参数
+    //        var options = new Dictionary<string, object>{
+    //    {"language_type", "CHN_ENG"},
+    //    {"detect_direction", "true"},
+    //    {"detect_language", "true"},
+    //    {"probability", "true"}
+    //};
+    //        // 带参数调用通用文字识别, 图片参数为远程url图片
+    //        result = client.GeneralBasicUrl(url, options);
+    //        Console.WriteLine(result);
+    //    }
         /// <summary>
         /// 字符串转化为byte数组
         /// </summary>
