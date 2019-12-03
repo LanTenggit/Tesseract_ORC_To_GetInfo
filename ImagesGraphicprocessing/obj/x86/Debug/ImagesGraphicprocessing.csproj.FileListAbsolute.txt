@@ -12,7 +12,6 @@ D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\x86\Debug\ImagesGr
 D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.exe
 D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.pdb
 D:\桌面\ImagesGraphicprocessing\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.csprojResolveAssemblyReference.cache
-D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.csprojResolveAssemblyReference.cache
 D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.AspriseOCR.resources
 D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.Form1.resources
 D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.Form2.resources
@@ -27,4 +26,5 @@ D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\bin\x86\Debug\ImagesG
 D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\bin\x86\Debug\ImagesGraphicprocessing.exe
 D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\bin\x86\Debug\ImagesGraphicprocessing.pdb
 D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\bin\x86\Debug\Newtonsoft.Json.dll
-D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\bin\x86\Debug\AipSdk.pdb
+D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.PXDiffImg.resources
+D:\桌面\Tesseract_ORC_To_GetInfo\ImagesGraphicprocessing\obj\x86\Debug\ImagesGraphicprocessing.csprojResolveAssemblyReference.cache
