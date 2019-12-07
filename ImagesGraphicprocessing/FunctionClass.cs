@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ImagesGraphicprocessing
 {
@@ -208,8 +209,64 @@ namespace ImagesGraphicprocessing
         }
 
 
+        
+        /// <summary>
+        /// 获取某目录下的所有文件(包括子目录下文件)的数量
+        /// </summary>
+        /// <param name="srcPath"></param>
+        /// <returns></returns>
+        public static int GetFileNum(string srcPath)
+        {
+            int fileNum = 0;
+            try
+            {
+                
+                string[] fileList = System.IO.Directory.GetFileSystemEntries(srcPath);
+                foreach (string file in fileList)
+                {
+                    if (System.IO.Directory.Exists(file))
+                        GetFileNum(file);
+                    else
+                        fileNum++;
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return fileNum;
+        }
 
 
 
+        /// <summary>
+        /// 删除文件夹里的所有文件
+        /// </summary>
+        /// <param name="srcPath"></param>
+        public static void DelectDir(string srcPath)
+        {
+            try
+            {
+                DirectoryInfo dir = new DirectoryInfo(srcPath);
+                FileSystemInfo[] fileinfo = dir.GetFileSystemInfos();  //返回目录中所有文件和子目录
+                foreach (FileSystemInfo i in fileinfo)
+                {
+                    if (i is DirectoryInfo)            //判断是否文件夹
+                    {
+                        DirectoryInfo subdir = new DirectoryInfo(i.FullName);
+                        subdir.Delete(true);          //删除子目录和文件
+                    }
+                    else
+                    {
+                        File.Delete(i.FullName);      //删除指定文件
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

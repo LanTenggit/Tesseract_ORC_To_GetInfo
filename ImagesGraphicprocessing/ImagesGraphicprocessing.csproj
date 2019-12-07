@@ -136,6 +136,12 @@
     </Compile>
     <Compile Include="FunctionClass.cs" />
     <Compile Include="INIClass\INIClassFunction.cs" />
+    <Compile Include="PhotoModelSimilarityMatching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhotoModelSimilarityMatching.Designer.cs">
+      <DependentUpon>PhotoModelSimilarityMatching.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Photopipei.cs">
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GetOtherFromText.resx">
       <DependentUpon>GetOtherFromText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhotoModelSimilarityMatching.resx">
+      <DependentUpon>PhotoModelSimilarityMatching.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
