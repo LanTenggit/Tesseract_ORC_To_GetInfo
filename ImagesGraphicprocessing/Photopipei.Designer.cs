@@ -37,14 +37,14 @@
             this.LblInfo = new System.Windows.Forms.Label();
             this.gr_info = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.PicSrc1 = new System.Windows.Forms.PictureBox();
             this.PicSrc2 = new System.Windows.Forms.PictureBox();
+            this.PicSrc1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicDest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSrc)).BeginInit();
             this.gr_info.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicSrc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSrc2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSrc1)).BeginInit();
             this.SuspendLayout();
             // 
             // bn_check
@@ -92,7 +92,7 @@
             this.PicSrc.Image = ((System.Drawing.Image)(resources.GetObject("PicSrc.Image")));
             this.PicSrc.Location = new System.Drawing.Point(20, 29);
             this.PicSrc.Name = "PicSrc";
-            this.PicSrc.Size = new System.Drawing.Size(180, 75);
+            this.PicSrc.Size = new System.Drawing.Size(164, 54);
             this.PicSrc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PicSrc.TabIndex = 5;
             this.PicSrc.TabStop = false;
@@ -130,16 +130,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "模板";
             // 
-            // PicSrc1
-            // 
-            this.PicSrc1.Image = ((System.Drawing.Image)(resources.GetObject("PicSrc1.Image")));
-            this.PicSrc1.Location = new System.Drawing.Point(20, 142);
-            this.PicSrc1.Name = "PicSrc1";
-            this.PicSrc1.Size = new System.Drawing.Size(167, 50);
-            this.PicSrc1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PicSrc1.TabIndex = 6;
-            this.PicSrc1.TabStop = false;
-            // 
             // PicSrc2
             // 
             this.PicSrc2.Image = ((System.Drawing.Image)(resources.GetObject("PicSrc2.Image")));
@@ -149,6 +139,16 @@
             this.PicSrc2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PicSrc2.TabIndex = 7;
             this.PicSrc2.TabStop = false;
+            // 
+            // PicSrc1
+            // 
+            this.PicSrc1.Image = ((System.Drawing.Image)(resources.GetObject("PicSrc1.Image")));
+            this.PicSrc1.Location = new System.Drawing.Point(20, 176);
+            this.PicSrc1.Name = "PicSrc1";
+            this.PicSrc1.Size = new System.Drawing.Size(167, 50);
+            this.PicSrc1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PicSrc1.TabIndex = 6;
+            this.PicSrc1.TabStop = false;
             // 
             // Photopipei
             // 
@@ -169,8 +169,8 @@
             this.gr_info.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicSrc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSrc2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicSrc1)).EndInit();
             this.ResumeLayout(false);
 
         }

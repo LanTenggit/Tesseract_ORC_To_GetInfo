@@ -344,9 +344,9 @@ namespace ImagesGraphicprocessing
                 SuccessBmp = (Bitmap)Bitmap.FromFile(Success_picturePath);
 
             }
+            PicDest.Image = DstBmp;
+            PicSrc.Image = SuccessBmp;
 
-
-           
             ///失败图片路径
             string Faild_picturePath = Path.GetFullPath("ImgConfig");
 
@@ -371,9 +371,9 @@ namespace ImagesGraphicprocessing
                 Faild_picturePath += "\\Faild.png";
                 FaildBmp = (Bitmap)Bitmap.FromFile(Faild_picturePath);
             }
-          
+            PicSrc1.Image = FaildBmp;
 
-
+            SrcBmp = SuccessBmp;
             Thread th_template_matching = new Thread(JietuSendOrther);
             th_template_matching.Start();
         }
@@ -692,6 +692,7 @@ namespace ImagesGraphicprocessing
             {
                 Bitmap Bmp = (Bitmap)Bitmap.FromFile(openFileDialog.FileName);
                 SuccessBmp = (Bitmap)Bmp.Clone();
+                SrcBmp = SuccessBmp;
                 Bmp.Dispose();
                 PicSrc.Image = SuccessBmp;
 
