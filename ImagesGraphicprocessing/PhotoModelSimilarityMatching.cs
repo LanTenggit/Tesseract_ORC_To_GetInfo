@@ -320,15 +320,58 @@ namespace ImagesGraphicprocessing
 
             bn_com_Click(sender, e);
 
-
+         
             ///成功图片路径
             string Success_picturePath = Path.GetFullPath("ImgConfig");
-            Success_picturePath += "\\3.png";
-            SuccessBmp = (Bitmap)Bitmap.FromFile(Success_picturePath);
+            string SuccessPathstr =  ini.IniReadValue("ModelImgPath", "SuccessPath");
+            if (SuccessPathstr == null || SuccessPathstr ==string.Empty)
+            {
+                Success_picturePath += "\\Success.png";
+            }
+            else
+            {
+                Success_picturePath += SuccessPathstr;
+            }
+
+            try
+            {
+                SuccessBmp = (Bitmap)Bitmap.FromFile(Success_picturePath);
+            }
+            catch (Exception)
+            {
+                Success_picturePath = Path.GetFullPath("ImgConfig");
+                Success_picturePath += "\\Success.png";
+                SuccessBmp = (Bitmap)Bitmap.FromFile(Success_picturePath);
+
+            }
+
+
+           
             ///失败图片路径
             string Faild_picturePath = Path.GetFullPath("ImgConfig");
-            Faild_picturePath += "\\4.png";
-            FaildBmp = (Bitmap)Bitmap.FromFile(Faild_picturePath);
+
+            string FaildPathstr = ini.IniReadValue("ModelImgPath", "FaildPath");
+            if (FaildPathstr == null || FaildPathstr == string.Empty)
+            {
+                Faild_picturePath += "\\Faild.png";
+            }
+            else
+            {
+                Faild_picturePath += FaildPathstr;
+            }
+
+            try
+            {
+
+                FaildBmp = (Bitmap)Bitmap.FromFile(Faild_picturePath);
+            }
+            catch (Exception)
+            {
+                Faild_picturePath = Path.GetFullPath("ImgConfig");
+                Faild_picturePath += "\\Faild.png";
+                FaildBmp = (Bitmap)Bitmap.FromFile(Faild_picturePath);
+            }
+          
 
 
             Thread th_template_matching = new Thread(JietuSendOrther);
@@ -410,6 +453,7 @@ namespace ImagesGraphicprocessing
         /// 保存的图片
         /// </summary>
         byte[] SaveimgByte;
+        string SaveImgstr;
         /// <summary>
         /// 截图并比较模板发送指令
         /// </summary>
@@ -434,12 +478,7 @@ namespace ImagesGraphicprocessing
                     {
                         Thread.Sleep(1000);
 
-                        string FilePath = Path.GetFullPath("images");
-                        int FileNum = FunctionClass.GetFileNum(FilePath);
-                        if (FileNum>30*60)
-                        {
-                            FunctionClass.DelectDir(FilePath);
-                        }
+                      
                         string imgpath = Path.GetFullPath("images");
                         imgpath += "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
                        
@@ -450,12 +489,17 @@ namespace ImagesGraphicprocessing
                         string Contrast_picturePath = imgpath;
 
                         byte[] JieTuByte = FunctionClass.GetImageByte(Contrast_picturePath);
-                        if (JieTuByte == SaveimgByte)
-                        {
 
+                        string jietustr=  GetBase64StringByImage(myImage);
+                        if (jietustr == SaveImgstr)
+                        {
+                            string orther = "相同图片";
+                            Byte[] buffer = FunctionClass.StringTobyte(orther);
+                            serial.Write(buffer, 0, buffer.Count());
                         }
                         else
                         {
+                            SaveImgstr = jietustr;
                             SaveimgByte = JieTuByte;
                             #region"second"
 
@@ -506,7 +550,7 @@ namespace ImagesGraphicprocessing
                             Bitmap JieTuBmp = (Bitmap)Bitmap.FromFile(Contrast_picturePath);
                             Image<Bgr, Byte> JieTuimageCV = new Image<Bgr, byte>(JieTuBmp);
                             JieTuMat = JieTuimageCV.Mat;
-
+                            JieTuBmp.Dispose();
                             ///成功模板矩阵
                             Image<Bgr, Byte> SuccessimageCV = new Image<Bgr, byte>(SuccessBmp);
                             SuccessMat = SuccessimageCV.Mat;
@@ -539,6 +583,13 @@ namespace ImagesGraphicprocessing
 
 
 
+                        }
+
+                        string FilePath = Path.GetFullPath("images");
+                        int FileNum = FunctionClass.GetFileNum(FilePath);
+                        if (FileNum > 30)
+                        {
+                            FunctionClass.DelectDir(FilePath);
                         }
 
                     }
@@ -644,6 +695,13 @@ namespace ImagesGraphicprocessing
                 Bmp.Dispose();
                 PicSrc.Image = SuccessBmp;
 
+                var bit1 = new Bitmap(SuccessBmp);
+                string Success_picturePath = Path.GetFullPath("ImgConfig");
+                string SuccessTimestr = "\\Success" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".png";
+                Success_picturePath += SuccessTimestr;
+                bit1.Save(Success_picturePath);
+                ini.IniWriteValue("ModelImgPath", "SuccessPath", SuccessTimestr);
+
             }
 
 
@@ -665,6 +723,12 @@ namespace ImagesGraphicprocessing
                 Bmp.Dispose();
                 PicSrc1.Image = FaildBmp;
 
+                var bit1 = new Bitmap(FaildBmp);
+                string FaildBmp_picturePath = Path.GetFullPath("ImgConfig");
+                string FaildTimestr = "\\Faild" + DateTime.Now.ToString("yyyyMMddhhmmss") + ".png";
+                FaildBmp_picturePath += FaildTimestr;
+                bit1.Save(FaildBmp_picturePath);
+                ini.IniWriteValue("ModelImgPath", "FaildPath", FaildTimestr);
             }
         }
 
@@ -729,6 +793,42 @@ namespace ImagesGraphicprocessing
                 return null;
             }
         }
+        /// <summary>
+        /// 得到base64文件
+        /// </summary>
+        /// <param name="img"></param>
+        /// <returns></returns>
+        public string GetBase64StringByImage(Image img)
+        {
+            string base64buffer = string.Empty;
+
+            try
+            {
+                if (img != null)
+                {
+                    byte[] bytes = PhotoImageInsert(img);
+                    base64buffer = Convert.ToBase64String(bytes);
+                }
+            }
+            catch (Exception ex)
+            { }
+            return base64buffer;
+        }
+
+        //将Image转换成流数据，并保存为byte[] 
+        public byte[] PhotoImageInsert(Image imgPhoto)
+        {
+            MemoryStream mstream = new MemoryStream();
+            imgPhoto.Save(mstream, System.Drawing.Imaging.ImageFormat.Bmp);
+            byte[] byData = new Byte[mstream.Length];
+            mstream.Position = 0;
+            mstream.Read(byData, 0, byData.Length); mstream.Close();
+            return byData;
+
+        }
+
+
+
 
 
     }
