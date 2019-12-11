@@ -343,7 +343,7 @@ namespace ImagesGraphicprocessing
                         //myImage = map;
                         myImage.Save(imgpath);
                         string Contrast_picturePath = Path.GetFullPath("images");
-                        Contrast_picturePath += "\\1.png";
+                        Contrast_picturePath += "\\2.png";
 
                         #region tessract_orc文字识别
                         string ocrTtxt = "";
