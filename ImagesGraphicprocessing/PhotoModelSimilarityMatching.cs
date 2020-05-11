@@ -476,7 +476,7 @@ namespace ImagesGraphicprocessing
                 {
                     if (serial.IsOpen)
                     {
-                        Thread.Sleep(1000);
+                        Thread.Sleep(50);
 
                       
                         string imgpath = Path.GetFullPath("images");
