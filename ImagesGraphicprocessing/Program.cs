@@ -16,7 +16,7 @@ namespace ImagesGraphicprocessing
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PhotoModelSimilarityMatching());
+            Application.Run(new Form2());
         }
     }
 }

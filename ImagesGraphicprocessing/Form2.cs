@@ -343,12 +343,12 @@ namespace ImagesGraphicprocessing
                         //myImage = map;
                         myImage.Save(imgpath);
                         string Contrast_picturePath = Path.GetFullPath("images");
-                        Contrast_picturePath += "\\2.png";
+                        Contrast_picturePath += "\\5.png";
 
                         #region tessract_orc文字识别
                         string ocrTtxt = "";
                         //chi_sim是中文库
-                        const string language = "chi_sim";
+                        const string language = "Song";
                         //Nuget安装的Tessract版本为3.20，tessdata的版本必须与其匹配，另外路径最后必须以"\"或者"/"结尾
 
                         //this.Invoke(new Action(() =>
