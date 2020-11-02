@@ -39,10 +39,10 @@
             this.LblInfo = new System.Windows.Forms.Label();
             this.gr_info = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.bn_setFaild = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bn_setSuccess = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tb_fail = new System.Windows.Forms.TextBox();
             this.tb_success = new System.Windows.Forms.TextBox();
@@ -57,6 +57,7 @@
             this.right_icon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关闭ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicSrc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicDest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicSrc)).BeginInit();
@@ -66,6 +67,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.right_icon.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // PicSrc1
@@ -81,7 +83,7 @@
             // PicDest
             // 
             this.PicDest.Image = ((System.Drawing.Image)(resources.GetObject("PicDest.Image")));
-            this.PicDest.Location = new System.Drawing.Point(30, 134);
+            this.PicDest.Location = new System.Drawing.Point(13, 20);
             this.PicDest.Name = "PicDest";
             this.PicDest.Size = new System.Drawing.Size(688, 520);
             this.PicDest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -90,7 +92,7 @@
             // 
             // bn_operate
             // 
-            this.bn_operate.Location = new System.Drawing.Point(235, 105);
+            this.bn_operate.Location = new System.Drawing.Point(215, 253);
             this.bn_operate.Name = "bn_operate";
             this.bn_operate.Size = new System.Drawing.Size(75, 23);
             this.bn_operate.TabIndex = 11;
@@ -100,7 +102,7 @@
             // 
             // bn_save
             // 
-            this.bn_save.Location = new System.Drawing.Point(125, 105);
+            this.bn_save.Location = new System.Drawing.Point(121, 253);
             this.bn_save.Name = "bn_save";
             this.bn_save.Size = new System.Drawing.Size(75, 23);
             this.bn_save.TabIndex = 10;
@@ -110,7 +112,7 @@
             // 
             // bn_check
             // 
-            this.bn_check.Location = new System.Drawing.Point(30, 105);
+            this.bn_check.Location = new System.Drawing.Point(30, 253);
             this.bn_check.Name = "bn_check";
             this.bn_check.Size = new System.Drawing.Size(75, 23);
             this.bn_check.TabIndex = 9;
@@ -124,7 +126,7 @@
             this.PicSrc.Location = new System.Drawing.Point(6, 20);
             this.PicSrc.Name = "PicSrc";
             this.PicSrc.Size = new System.Drawing.Size(180, 75);
-            this.PicSrc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PicSrc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicSrc.TabIndex = 5;
             this.PicSrc.TabStop = false;
             // 
@@ -141,9 +143,9 @@
             // gr_info
             // 
             this.gr_info.Controls.Add(this.LblInfo);
-            this.gr_info.Location = new System.Drawing.Point(6, 362);
+            this.gr_info.Location = new System.Drawing.Point(817, 115);
             this.gr_info.Name = "gr_info";
-            this.gr_info.Size = new System.Drawing.Size(235, 152);
+            this.gr_info.Size = new System.Drawing.Size(210, 152);
             this.gr_info.TabIndex = 7;
             this.gr_info.TabStop = false;
             this.gr_info.Text = "匹配信息";
@@ -154,27 +156,16 @@
             this.groupBox1.Controls.Add(this.bn_setSuccess);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.gr_info);
-            this.groupBox1.Location = new System.Drawing.Point(748, 134);
+            this.groupBox1.Location = new System.Drawing.Point(30, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 520);
+            this.groupBox1.Size = new System.Drawing.Size(781, 138);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "模板";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.PicSrc1);
-            this.groupBox4.Location = new System.Drawing.Point(6, 196);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(235, 100);
-            this.groupBox4.TabIndex = 11;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "过站失败";
-            // 
             // bn_setFaild
             // 
-            this.bn_setFaild.Location = new System.Drawing.Point(14, 302);
+            this.bn_setFaild.Location = new System.Drawing.Point(642, 57);
             this.bn_setFaild.Name = "bn_setFaild";
             this.bn_setFaild.Size = new System.Drawing.Size(129, 33);
             this.bn_setFaild.TabIndex = 9;
@@ -182,25 +173,35 @@
             this.bn_setFaild.UseVisualStyleBackColor = true;
             this.bn_setFaild.Click += new System.EventHandler(this.bn_setFaild_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.PicSrc);
-            this.groupBox3.Location = new System.Drawing.Point(6, 39);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(235, 116);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "过站成功";
-            // 
             // bn_setSuccess
             // 
-            this.bn_setSuccess.Location = new System.Drawing.Point(14, 157);
+            this.bn_setSuccess.Location = new System.Drawing.Point(247, 57);
             this.bn_setSuccess.Name = "bn_setSuccess";
             this.bn_setSuccess.Size = new System.Drawing.Size(129, 33);
             this.bn_setSuccess.TabIndex = 8;
             this.bn_setSuccess.Text = "设置成功模板";
             this.bn_setSuccess.UseVisualStyleBackColor = true;
             this.bn_setSuccess.Click += new System.EventHandler(this.bn_setSuccess_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.PicSrc1);
+            this.groupBox4.Location = new System.Drawing.Point(394, 20);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(235, 100);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "过站失败";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.PicSrc);
+            this.groupBox3.Location = new System.Drawing.Point(6, 19);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(235, 116);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "过站成功";
             // 
             // groupBox2
             // 
@@ -215,7 +216,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(33, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(962, 87);
+            this.groupBox2.Size = new System.Drawing.Size(994, 87);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "串口设置";
@@ -325,14 +326,25 @@
             this.关闭ToolStripMenuItem.Text = "关闭";
             this.关闭ToolStripMenuItem.Click += new System.EventHandler(this.关闭ToolStripMenuItem_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.PicDest);
+            this.groupBox5.Location = new System.Drawing.Point(30, 282);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(965, 567);
+            this.groupBox5.TabIndex = 15;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "groupBox5";
+            // 
             // PhotoModelSimilarityMatching
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 669);
+            this.ClientSize = new System.Drawing.Size(1039, 873);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.PicDest);
             this.Controls.Add(this.bn_operate);
+            this.Controls.Add(this.gr_info);
             this.Controls.Add(this.bn_save);
             this.Controls.Add(this.bn_check);
             this.Controls.Add(this.groupBox1);
@@ -353,10 +365,10 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.right_icon.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -390,5 +402,6 @@
         private System.Windows.Forms.Button bn_setFaild;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button bn_setSuccess;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

@@ -1,0 +1,73 @@
+tesseract 1.png 1.txt -l Song  chi_sim
+1.安装Tesseract.exe文件并配置Path 
+
+复制安装路径“C:\Program Files (x86)\Tesseract-OCR”，右键点击“计算机”，进入属性系统，
+然后点击“高级系统设置”
+
+
+Windows环境安装tesseract-OCR并配置环境变量
+点击环境变量，进入配置以下界面
+
+把刚才的安装路径
+“C:\Program Files (x86)\Tesseract-OCR”添加到红线划的PATH和Path，注意，添加时候开头用“;”跟之前的变量隔开，
+结尾以“;”结尾。下面是我的配置信息样本，  
+  配置好了点击确定保存。
+
+
+Windows环境安装tesseract-OCR并配置环境变量
+Windows环境安装tesseract-OCR并配置环境变量
+
+
+window+r,输入cmd,打开命令终端，输入：tesseract -v，可以看到版本信息
+
+
+
+
+
+2.打开jTessBoxEditor-2.2.1 （train.bat）进行训练;
+
+3.把训练生成的库添加到引用包中。
+
+CMD:
+识别
+tesseract test.jpg result -l chi_sim
+生成box文件
+
+tesseract mjorcen.normal.exp0.png mjorcen.normal.exp0 -l chi_sim batch.nochop makebox
+
+tesseract mjorcen.normal.exp1.png mjorcen.normal.exp1 -l chi_sim batch.nochop makebox
+
+
+
+一，CMD 将光标切换到目标文件夹
+Dos:
+  D:
+  cd D:桌面\Test
+
+
+二，更改图片名称
+
+ 
+例如：将1.png改为 Song.Ti.exp0.png (exp0,exp1)
+
+
+三，生成box文件用于训练
+
+ cmd窗口输入：Tesseract Song.Ti.exp0.peng  Song.Ti.exp0 -l chi_sim batch.nochop makebox
+
+
+四，打开jTessBoxEditor-2.2.1 （train.bat）进行训练;
+
+1.BOX——》Editor 》open 选择 Song.Ti.exp0.png 进行文字修改
+
+2.Trainer 设置 Traning Data (保存路径)  Language (生成的字库名)  RTL （格式）
+ 
+3.点击Run即可生成字库（Song）
+
+
+五，识别 
+cmd输入 Tesseract 1.png txt文件名 -l Song(生成的字库 放在Tesseract的安装目录)
+
+
+
+Tesseract  Lc.Ti.exp0.png  Lc.Ti.exp0 -l chi_sim batch.nochop makebox

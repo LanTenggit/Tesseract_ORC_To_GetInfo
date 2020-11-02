@@ -318,7 +318,7 @@ namespace ImagesGraphicprocessing
                 tb_fail.Text = ini.IniReadValue("config", "faild").ToString();
             }
 
-            bn_com_Click(sender, e);
+            //bn_com_Click(sender, e);
 
          
             ///成功图片路径
